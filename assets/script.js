@@ -22,3 +22,8 @@ let arrowLeft = document.querySelector(".arrow_left") ;
 	arrowLeft.addEventListener("click" , function() {
 		console.log("Vous avez clicker sur la flèche gauche")
 	} )
+
+let arrowRight = document.querySelector(".arrow_right") ;
+	arrowRight.addEventListener("click" , function() {
+		console.log("Vous avez clicker sur la flèche droite")
+	} )
