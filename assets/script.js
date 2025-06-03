@@ -72,7 +72,6 @@ for (let i = 0; i < slides.length; i++) {
 }
 
 /* Changer la slide au click sur un bullet point */
-/* Récupérer le bullet point */
 let bulletPoint = document.querySelectorAll(".dot");
 bulletPoint.forEach((dot , indexSlides) => {
 	dot.addEventListener("click" , function() {
@@ -81,8 +80,7 @@ bulletPoint.forEach((dot , indexSlides) => {
 		changeSlides(indexSlides);
 	})
 })
-/* Ajouter un Add.enventListener sur les bullet point au click */
-/* Changer la class du bullet Point + changer la slides de la banière */
+
 
 /* Mettre le premier bullet Point avec la class de sélection */
 let firstDot = document.querySelectorAll(".dot")[0];
