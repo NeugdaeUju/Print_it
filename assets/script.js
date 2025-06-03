@@ -25,19 +25,16 @@ const textSlides = document.querySelector("#banner p");
 /* Mise à 0 du conteur des slides (objet dans le tableau Slides) */
 let indexSlides = 0;
 
-/* Création de la fonction pour changer les slides */
-function changeSlides(indexSlides) {
+/* Fonction de changement de slides et de bullet point */
+function changeBanner(indexSlides) {
 	imageSlides.src="assets/images/slideshow/" + slides[indexSlides].image;
 	textSlides.innerHTML = slides[indexSlides].tagLine;
-}
 
-/* Changement du bullet Point actif au clic sur la flèche */
-function changeDot(indexSlides) {
 	const dots = document.querySelectorAll(".dot");
 	dots.forEach(dot => {
-			dot.classList.remove("dot_selected")
-		});
-		dots[indexSlides].classList.add("dot_selected")
+		dot.classList.remove("dot_selected")
+	})
+	dots[indexSlides].classList.add("dot_selected")
 }
 
 /* Ecoute de chaque flèche */
@@ -48,8 +45,7 @@ let arrowLeft = document.querySelector(".arrow_left") ;
 		if(indexSlides < 0) {
 			indexSlides = slides.length - 1;
 		}
-		changeSlides(indexSlides);
-		changeDot(indexSlides)
+		changeBanner(indexSlides);
 	} )
 
 let arrowRight = document.querySelector(".arrow_right") ;
@@ -59,8 +55,7 @@ let arrowRight = document.querySelector(".arrow_right") ;
 		if(indexSlides >= slides.length) {
 			indexSlides = 0;
 		}
-		changeSlides(indexSlides);
-		changeDot(indexSlides)
+		changeBanner(indexSlides);
 		} )
 
 /* Faire apparaître le nombre de bullet point dans le fichier*/
@@ -76,8 +71,7 @@ let bulletPoint = document.querySelectorAll(".dot");
 bulletPoint.forEach((dot , indexSlides) => {
 	dot.addEventListener("click" , function() {
 		console.log("vous avez appuyer sur un bullet Point");
-		changeDot(indexSlides);
-		changeSlides(indexSlides);
+		changeBanner(indexSlides);
 	})
 })
 
