@@ -68,9 +68,10 @@ for (let i = 0; i < slides.length; i++) {
 
 /* Changer la slide au click sur un bullet point */
 let bulletPoint = document.querySelectorAll(".dot");
-bulletPoint.forEach((dot , indexSlides) => {
+bulletPoint.forEach((dot , index) => {
 	dot.addEventListener("click" , function() {
 		console.log("vous avez appuyer sur un bullet Point");
+		indexSlides = index ;
 		changeBanner(indexSlides);
 	})
 })
