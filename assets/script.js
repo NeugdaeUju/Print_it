@@ -22,6 +22,15 @@ const slides = [
 const imageSlides = document.querySelector(".banner-img");
 const textSlides = document.querySelector(".banner p")
 
+/* Mise à 0 du conteur des slides (objet dans le tableau Slides) */
+let indexSlides = 0;
+
+/* Création de la fonction pour changer les slides */
+function changeSlides() {
+	imageSlides.src=".images/slideshow/" + slides[indexSlides].image;
+	textSlides.innerHTML = slides[indexSlides].tagLine;
+}
+
 /* Ecoute de chaque flèche */
 let arrowLeft = document.querySelector(".arrow_left") ;
 	arrowLeft.addEventListener("click" , function() {
