@@ -17,16 +17,40 @@ const slides = [
 	}
 ]
 
+
+/* Récupération des espaces des slides */
+const imageSlides = document.querySelector(".banner-img");
+const textSlides = document.querySelector("#banner p");
+
+/* Mise à 0 du conteur des slides (objet dans le tableau Slides) */
+let indexSlides = 0;
+
+/* Création de la fonction pour changer les slides */
+function changeSlides() {
+	imageSlides.src="assets/images/slideshow/" + slides[indexSlides].image;
+	textSlides.innerHTML = slides[indexSlides].tagLine;
+}
+
 /* Ecoute de chaque flèche */
 let arrowLeft = document.querySelector(".arrow_left") ;
 	arrowLeft.addEventListener("click" , function() {
-		console.log("Vous avez clicker sur la flèche gauche")
+		console.log("Vous avez clicker sur la flèche gauche");
+		indexSlides-- ;
+		if(indexSlides < 0) {
+			indexSlides = slides.length - 1;
+		}
+		changeSlides();
 	} )
 
 let arrowRight = document.querySelector(".arrow_right") ;
 	arrowRight.addEventListener("click" , function() {
-		console.log("Vous avez clicker sur la flèche droite")
-	} )
+		console.log("Vous avez clicker sur la flèche droite");
+		indexSlides++ ;
+		if(indexSlides >= slides.length) {
+			indexSlides = 0;
+		}
+		changeSlides();
+		} )
 
 /* Faire apparaître le nombre de bullet point dans le fichier + changement de class des bullet */
 let sectionBulletPoint = document.querySelector(".dots") ;
