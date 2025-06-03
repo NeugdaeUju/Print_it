@@ -31,6 +31,15 @@ function changeSlides() {
 	textSlides.innerHTML = slides[indexSlides].tagLine;
 }
 
+/* Changement du bullet Point actif au clic sur la flèche */
+function changeDot(indexSlides) {
+	const dots = document.querySelectorAll(".dot");
+	dots.forEach(dot => {
+			dot.classList.remove("dot_selected")
+		});
+		dots[indexSlides].classList.add("dot_selected")
+}
+
 /* Ecoute de chaque flèche */
 let arrowLeft = document.querySelector(".arrow_left") ;
 	arrowLeft.addEventListener("click" , function() {
@@ -40,6 +49,7 @@ let arrowLeft = document.querySelector(".arrow_left") ;
 			indexSlides = slides.length - 1;
 		}
 		changeSlides();
+		changeDot(indexSlides)
 	} )
 
 let arrowRight = document.querySelector(".arrow_right") ;
@@ -50,6 +60,7 @@ let arrowRight = document.querySelector(".arrow_right") ;
 			indexSlides = 0;
 		}
 		changeSlides();
+		changeDot(indexSlides)
 		} )
 
 /* Faire apparaître le nombre de bullet point dans le fichier + changement de class des bullet */
