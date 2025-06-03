@@ -28,6 +28,24 @@ let arrowRight = document.querySelector(".arrow_right") ;
 		console.log("Vous avez clicker sur la flèche droite")
 	} )
 
-/* Ajout des bullet points (calcule du nombre de bullet points nécessaire*/
-let totalBulletPoint = slides.length;
-console.log("Il y a " + totalBulletPoint + " Bullet Points");
+/* Faire apparaître le nombre de bullet point dans le fichier + changement de class des bullet */
+let sectionBulletPoint = document.querySelector(".dots") ;
+for (let i = 0; i < slides.length; i++) {
+	let dot = document.createElement("div") ;
+	dot.classList.add("dot") ;
+	sectionBulletPoint.appendChild(dot) ;
+
+	dot.addEventListener("click", function() {
+		let allDots = document.querySelectorAll(".dot");
+
+		allDots.forEach(function(d) {
+			d.classList.remove("dot_selected")
+		});
+		dot.classList.add("dot_selected")
+	})
+
+}
+
+/* Mettre le premier bullet Point avec la class de sélection */
+let firstDot = document.querySelectorAll(".dot")[0];
+firstDot.classList.add("dot_selected");
