@@ -35,6 +35,11 @@ function changeSlides() {
 let arrowLeft = document.querySelector(".arrow_left") ;
 	arrowLeft.addEventListener("click" , function() {
 		console.log("Vous avez clicker sur la flèche gauche");
+		indexSlides-- ;
+		if(indexSlides < 0) {
+			indexSlides = slides.length - 1;
+		}
+		changeSlides();
 	} )
 
 let arrowRight = document.querySelector(".arrow_right") ;
