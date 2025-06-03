@@ -40,6 +40,11 @@ let arrowLeft = document.querySelector(".arrow_left") ;
 let arrowRight = document.querySelector(".arrow_right") ;
 	arrowRight.addEventListener("click" , function() {
 		console.log("Vous avez clicker sur la flèche droite");
+		indexSlides++ ;
+		if(indexSlides >= slides.length) {
+			indexSlides = 0;
+		}
+		changeSlides();
 		} )
 
 /* Faire apparaître le nombre de bullet point dans le fichier + changement de class des bullet */
