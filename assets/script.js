@@ -17,16 +17,21 @@ const slides = [
 	}
 ]
 
+
+/* Récupération des espaces des slides */
+const imageSlides = document.querySelector(".banner-img");
+const textSlides = document.querySelector(".banner p")
+
 /* Ecoute de chaque flèche */
 let arrowLeft = document.querySelector(".arrow_left") ;
 	arrowLeft.addEventListener("click" , function() {
-		console.log("Vous avez clicker sur la flèche gauche")
+		console.log("Vous avez clicker sur la flèche gauche");
 	} )
 
 let arrowRight = document.querySelector(".arrow_right") ;
 	arrowRight.addEventListener("click" , function() {
-		console.log("Vous avez clicker sur la flèche droite")
-	} )
+		console.log("Vous avez clicker sur la flèche droite");
+		} )
 
 /* Faire apparaître le nombre de bullet point dans le fichier + changement de class des bullet */
 let sectionBulletPoint = document.querySelector(".dots") ;
