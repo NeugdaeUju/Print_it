@@ -26,7 +26,7 @@ const textSlides = document.querySelector("#banner p");
 let indexSlides = 0;
 
 /* Création de la fonction pour changer les slides */
-function changeSlides() {
+function changeSlides(indexSlides) {
 	imageSlides.src="assets/images/slideshow/" + slides[indexSlides].image;
 	textSlides.innerHTML = slides[indexSlides].tagLine;
 }
@@ -48,7 +48,7 @@ let arrowLeft = document.querySelector(".arrow_left") ;
 		if(indexSlides < 0) {
 			indexSlides = slides.length - 1;
 		}
-		changeSlides();
+		changeSlides(indexSlides);
 		changeDot(indexSlides)
 	} )
 
@@ -59,27 +59,30 @@ let arrowRight = document.querySelector(".arrow_right") ;
 		if(indexSlides >= slides.length) {
 			indexSlides = 0;
 		}
-		changeSlides();
+		changeSlides(indexSlides);
 		changeDot(indexSlides)
 		} )
 
-/* Faire apparaître le nombre de bullet point dans le fichier + changement de class des bullet */
+/* Faire apparaître le nombre de bullet point dans le fichier*/
 let sectionBulletPoint = document.querySelector(".dots") ;
 for (let i = 0; i < slides.length; i++) {
 	let dot = document.createElement("div") ;
 	dot.classList.add("dot") ;
 	sectionBulletPoint.appendChild(dot) ;
-
-	dot.addEventListener("click", function() {
-		let allDots = document.querySelectorAll(".dot");
-
-		allDots.forEach(function(d) {
-			d.classList.remove("dot_selected")
-		});
-		dot.classList.add("dot_selected")
-	})
-
 }
+
+/* Changer la slide au click sur un bullet point */
+/* Récupérer le bullet point */
+let bulletPoint = document.querySelectorAll(".dot");
+bulletPoint.forEach((dot , indexSlides) => {
+	dot.addEventListener("click" , function() {
+		console.log("vous avez appuyer sur un bullet Point");
+		changeDot(indexSlides);
+		changeSlides(indexSlides);
+	})
+})
+/* Ajouter un Add.enventListener sur les bullet point au click */
+/* Changer la class du bullet Point + changer la slides de la banière */
 
 /* Mettre le premier bullet Point avec la class de sélection */
 let firstDot = document.querySelectorAll(".dot")[0];
